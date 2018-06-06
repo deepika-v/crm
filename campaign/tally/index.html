@@ -1,0 +1,238 @@
+﻿<!doctype html>
+<!-- saved from url=(0044)http://bogdanpreda.com/themes/tf-besmart/v4/ -->
+<!doctype html PUBLIC "" "">
+<html lang="en">
+<head>
+<meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+     
+<meta charset="utf-8">     
+<meta name="viewport" content="width=device-width, initial-scale=1.0">     
+<meta name="keywords" content="">     
+<meta name="description" content="">     
+<title>Lurningo - Tally</title>         
+<!-- Loading Bootstrap -->     
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"></link>
+<link href="css/bootstrap.css" rel="stylesheet"> 
+<link href="css/css/font-awesome.min.css" rel="stylesheet">    
+<!-- Loading Template CSS -->     
+<link href="css/style.css" rel="stylesheet">     
+<link href="css/animate.css" rel="stylesheet">     
+<link href="css/style-magnific-popup.css" rel="stylesheet">         <!-- Font Awesome -->    
+<link href="css/fonts.css" rel="stylesheet">        
+<!-- Google Fonts -->     
+<link href="css/css.css" rel="stylesheet" type="text/css">     
+<link href="css/css(1).css" rel="stylesheet" type="text/css">     <!-- Font Favicon -->     
+<link href="images/favicon.ico" rel="shortcut icon">     
+<!-- html5 shim, for IE6-8 support of html5 elements. All other JS at the end of file. --> 
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]--> 
+        <!--headerIncludes-->     
+<meta name="GENERATOR" content="MShtml 11.00.9600.18231">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"> </script>
+<script>
+$(function()
+ {
+$( "#userdob" ).datepicker({
+maxDate: "+0D",
+dateFormat:"dd-mm-yyyy"
+});
+$("#userdob").datepicker("option","dateFormat", "dd/mm/yy");});
+function validate(){
+var phoneno = /^[1-9]{1}[0-9]{9}$/;var dob = /^(0[1-9]|[12][0-9]|3[01])[- /.](?:(0[1-9]|1[012])[- /.](19|20)[0-9]{2})$/;
+var error = "";
+if(document.getElementById("userfname").value.trim() == "") error += "Enter First Name\n";
+if(document.getElementById("userlname").value.trim() == "") error += "Enter Last Name\n";
+if(document.getElementById("usergender").value == "0") error += "Select Gender\n";
+if(document.getElementById("useremail").value.trim() == "") error += "Enter Email\n";
+if(document.getElementById("userphone").value.trim() == "") error += "Enter Phone Number\n";
+if(!document.getElementById("userphone").value.trim().match(phoneno)) error += "Enter valid Phone Number\n"
+if(document.getElementById("userdob").value.trim() == "")error += "Enter Date of Birth\n";
+if(!document.getElementById("userdob").value.trim().match(dob)) error += "Enter valid Date of Birth\n";
+if(document.getElementById("userterms").checked==false) error += "Please accept Lurningo Terms and Conditions";
+if(error != ""){alert(error);
+return false;
+}
+else
+return true;
+}
+</script>
+</head> 
+<body>       <!--begin header --> 
+    <header class="header"><!--begin nav -->         
+    <nav class="navbar navbar-default navbar-fixed-top"><!--begin container --> 
+            
+<div class="container"><!--begin navbar -->                 
+<div class="navbar-header">
+<button class="navbar-toggle" type="button" 
+data-toggle="collapse" data-target="#navbar-collapse-02">
+<span 
+class="sr-only">Toggle navigation</span>                         
+<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+</button>                  
+
+<a class="navbar-brand brand scrool" href="#"><img src="images/logo.jpg"></a>                 
+</div>
+<div class="collapse navbar-collapse" id="navbar-collapse-02">
+<ul class="nav navbar-nav navbar-right">
+  <li><a href="http://bogdanpreda.com/themes/tf-besmart/v4/#features">About Tally ERP 9 Start-Up</a></li>
+</ul>
+  </div><!--end navbar -->                                         
+        </div><!--end container -->                     </nav><!--end nav -->    
+         </header>
+         <!--end header -->         <!--begin home_wrapper -->     
+<section class="home-wrapper" id="home_wrapper"><!--begin gradient_overlay -->   
+      
+<div class="gradient_overlay"></div><!--end gradient_overlay -->                 <!--begin container--> 
+        
+<div class="container home-wrappe-inside"><!--begin row-->             
+<div class="row"><!--begin col-md-6-->                 
+<div class="col-md-6 padding-top-80" style="text-align:center;">
+<h1 class="home-title wow fadeIn" data-wow-delay="0.5s" style="margin-bottom:0 !important; line-height:normal;">Tally ERP 9 Start-Up </h1>
+<p style="margin:0px; padding:0px; color:#fff;">Please fill in the form below to apply.</p>
+<br><br>
+<!--<p class="home-subtitle wow fadeIn" data-wow-delay="1s" style="font-size:26px !important; 
+    padding: 9px;"><span style="background-color: #2C7B86 !important; padding:0 25px !important;">Academic Session 2016</span></p>-->
+<!--begin form--> 
+                    
+<div class="wow fadeIn" data-wow-delay="1.5s"><!--begin success message -->      
+                   
+<p class="register_success_box" style="display: none;">
+We received your message and you'll hear from us soon. Thank You!
+</p><!--end success message -->          
+                                       <!--begin register form -->               
+          <form style="text-align:center;" action="http://crm.lurningo.com/Leadapi" method="post" id="campaignform" name="campaignform" onsubmit="return(validate());">
+<input type="hidden"  id="campaignid" name="campaignid" value="31">
+<input type="hidden" id="redirecturl" name="redirecturl" value="https://www.lurningo.com/product/details/12-tally-erp-9-start-up-course">
+<input type="hidden" id="apikey" name="apikey" value="Lurningo_API_KEY" hidden>
+<div class="row">
+<div class="col-md-6">
+<input type="text" placeholder="First name" class="register-input white-input" id="userfname" name="userfname">
+</div> 
+<div class="col-md-6">
+<input type = "text" placeholder="Last name" class="register-input white-input" id="userlname" name="userlname">
+</div>
+<div class="col-md-6">
+<select id="usergender" class="register-input white-input" name="usergender">
+<option value="0">Select</option>
+<option value="M">Male</option>
+<option value="F">Female</option>
+<option value="O">Other</option>
+</select></div>
+<div class="col-md-6">
+<input type="text" id="userdob" class="register-input white-input" name="userdob" placeholder="dd-mm-yyyy">
+</div>
+<div class="col-md-6">
+<input type="email" placeholder="Enter Email" class="register-input white-input" id="useremail" name="useremail">
+</div>
+<div class="col-md-6">
+<input type="text" placeholder="Enter Phone number" class="register-input white-input" id="userphone" name="userphone">
+</div>
+</div>
+<input type="checkbox" id="userterms" name="userterms"> I have read and agree to Lurningo <a href="https://www.lurningo.com/Account/TermsAndConditions">Terms and Conditions</a>
+<br /><br />
+<input class="register-submit-top" type="submit" id="submitform" name="submitform"  value="SUBMIT"><br>
+</form>
+<!--end register form --> 
+ </div><!--end form--> 
+                                                </div><!--end col-md-6-->   
+                                                
+<div class="col-md-6">
+ <img src="images/banner_img.png">
+</div>                                                
+                                                     
+                 </div><!--end row-->                      
+                 
+                  </div><!--end container--> 
+            </section><!--end home_wrapper -->         <!--begin section-grey--> 
+       <section id="features"><!--begin section-white--> 
+      
+<div class="section-white small-padding-bottom"><!--begin container-->           
+<div class="container"><!--begin row-->                 
+<div class="row margin-bottom-30"><!--begin col-md-12-->                     
+<div class="col-md-12 text-center">
+<h2 class="section-title">About Tally ERP 9 Start-Up</h2>
+<div class="separator_wrapper"><i class="fa fa-star red"></i>            
+             </div>
+<p class="section-subtitle">The Tally ERP 9 start-up course guides one to handle Accounting, Inventory, Statutory and other specific business roles using Tally ERP 9.<br> The Course uses a feature-based approach to introduce students to accounting on computers. <br><br>
+The objective of the course is to impart knowledge on the basics of accounting, ledger, banking and other business roles using Tally ERP 9.</p>
+<p class="section-subtitle">Students can learn anytime, anywhere using the specialized Mobile App. The course includes video lectures and digital content curated by Industry experts. After successful completion of the course, student will be certified with industry recognized Tally certificate.</p>
+<p class="section-subtitle">Join Tally ERP 9 Start-up course today and boost your chance of getting hired.</p>
+</div><!--end col-md-12-->                              
+
+<p></p>
+   </div><!--end row-->                                 <!--begin row-->         
+        
+<div class="row"><!--begin col-sm-4-->                     
+<div class="col-sm-3 features-item">
+<div class="icon-wrapper"><i class="fa fa-mobile fa-5x features-icon" style="padding-right: 30px;
+    padding-left: 30px;"></i> 
+                        </div>
+<h3>'Learn On The Go'<br>
+with mobile app</h3></div><!--end col-sm-4-->                            
+             <!--begin col-sm-4-->                     
+<div class="col-sm-3 features-item">
+<div class="icon-wrapper"><i class="fa fa-microphone fa-5x features-icon" style="padding-left: 27px;
+    padding-right: 27px;"></i> 
+                        </div>
+<h3>Textual And Audio-Visual
+Study Materials</h3></div><!--end col-sm-4-->                            
+             <!--begin col-sm-4-->                     
+<div class="col-sm-3 features-item">
+<div class="icon-wrapper"><i class="fa fa-group fa-5x features-icon"></i> 
+                        </div>
+<h3>Academic Content
+Prepared By
+Industry Experts</h3></div><!--end col-sm-4-->  
+                        
+                        <div class="col-sm-3 features-item">
+<div class="icon-wrapper"><i class="fa fa-clipboard fa-5x features-icon"></i> 
+                        </div>
+<h3>Online Admission
+& Faculty Interaction</h3></div><!--end col-sm-4-->                          
+         </div><!--end row-->                           </div><!--end container--> 
+                      </div><!--end section-white-->           </section><!--end features--> 
+        <!--begin section-grey -->  
+<!--end section-white--> 
+        
+        <!--begin footer -->     
+<div class="footer"><!--begin container -->         
+<div class="container"><!--begin row -->             
+<div class="row"><!--begin col-md-12 -->                 
+<div class="col-md-12 text-center"><!--begin copyright -->                     
+<div class="copyright">
+<button data-toggle="collapse" data-target="#demo" style="background: none; border: none;"><p class="footer-logo"><span>Privacy Policy</span></p></button>
+
+<div id="demo" class="collapse" style="padding: 15px 50px; color: rgb(197, 197, 197); border-bottom-width: 1px;
+    border-bottom-style: solid; border-bottom-color: rgb(78, 78, 78);">
+<span>Lurningo may use your name, email address, telephone number or other data to communicate with you either by itself or through any of its designates. To have this information modified or deleted from our records at any time, please write to corporate@schoolguru.in. Lurningo assures you that it will not sell this information to any other third party.
+</span>
+</div>
+
+<p style="margin-bottom:8px !important; padding-top: 14px;">Copyright © 2016 All Rights Reserved  |  Lurningo </p></div><!--end copyright -->                  
+                                                       <!--begin footer_social --> 
+   <!--end footer_social --> 
+                                    </div><!--end col-md-6 -->                   
+          </div><!--end row -->                     </div><!--end container -->  
+                   </div><!--end footer -->         <!-- Load JS here for greater good =============================--> 
+    
+<script src="js/jquery-1.11.3.min.js"></script>
+     
+<script src="js/bootstrap.min.js"></script>
+     
+<script src="js/jquery.magnific-popup.min.js"></script>
+     
+<script src="js/jquery.nav.js"></script>
+     
+<script src="js/jquery.scrollTo-min.js"></script>
+     
+<script src="js/SmoothScroll.js"></script>
+     
+<script src="js/wow.js"></script>
+     
+<script src="js/custom.js"></script>
+     
+<script src="js/plugins.js"></script>
+         </body></html>

@@ -1,0 +1,136 @@
+ <div class="page-content">
+    <div class="container">
+      <div class="modal fade bs-modal-lg" id="formview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+              <h4 class="modal-title">Details of Candidate</h4>
+            </div>
+            <div class="modal-body" id="messagebody">   
+              
+              <label class="col-md-3 control-label">Redirect Url<span class="required">*</span></label>
+              <div class="col-md-9">
+                <input type="text" class="form-control input-circle" placeholder="Enter url " id="redirecturl" name="redirecturl"><br>
+              </div>
+              <div class="col-md-12">
+                
+                <fieldset>
+                  <legend>Sample Form </legend>
+                  <form action="#" method="post" id="campaignform" name="campaignform" onsubmit="">
+                    <label>Candidate Name:-</label><input type="text" placeholder="Enter first name" id="userfname" name="userfname"><input type = "text" placeholder="Enter Last name" id="userlname" name="userlname"><br>
+                    <input type="text" id="campaignid" name="campaignid" value="" hidden >
+                    <label>Gender:-</label><select id="usergender" name="usergender">
+                    <option value="0">--Select--</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                  </select><br>
+                  <label>Date of Birth:-</label><input type="text" id="userdob" name="userdob" placeholder="dd/mm/yyyy"></br>
+                  <label>Email:-</label><input type="email" placeholder="Enter Email" id="useremail" name="useremail"></br>
+                  <label>Phone:-</label><input type="text" placeholder="Enter Phone number" id="userphone" name="userphone"><br>
+                  <input type="checkbox" id="userterms" name="userterms"> I accept Lurningo <a href="https://www.lurningo.com/Account/TermsAndConditions">Terms and Conditions</a><br>
+                  <input type="submit" id="submitform" name="submitform"  value="Submit"><br>
+                </form>
+              </fieldset>
+            </div>
+            <hr>
+            <a href="#"  class="btn btn-warning" onclick="displayeditor();">View Source</a> 
+            <textarea id="viewsource" rows="10" cols="100" style="display:none;">
+             
+            </textarea> 
+          </div>
+          <div class="modal-footer">
+           <button type="button" class="btn default" data-dismiss="modal">Close</button>
+         </div>
+       </div>
+       <!-- /.modal-content -->
+     </div>
+     <!-- /.modal-dialog -->
+   </div>
+   <script type="text/javascript">
+  function displaymodal(campaignID)
+  {
+     document.getElementById('campaignid').value=campaignID;
+     jQuery("#formview").modal('show');                       
+  }
+function displayeditor()
+{
+  var redirecturl = document.getElementById('redirecturl').value.trim();
+  var campaignid = document.getElementById('campaignid').value;
+  if (redirecturl=="") alert("Enter redirect url");
+  else
+  {
+    var myRegExp = /^(((ht|f){1}(tp|tps:[/][/]){1})|((www.){1}))[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+$/;
+    if (!myRegExp.test(redirecturl))
+    {
+      alert("Not a valid URL.");
+    }
+    else
+    {
+         document.getElementById('viewsource').style.display="block";
+         txtDATA = '<html>\n<head>\n'+
+         '<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"></link>\n'+
+         '<script src="https://code.jquery.com/jquery-1.10.2.js">'+
+         '</'+'script>\n'+
+         '<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"> </'+'script>\n'+
+         '<script>\n'+
+         '$(function()\n'+
+          ' {\n'+
+          '$( "#userdob" ).datepicker({\n'+
+            'maxDate: "+0D",\n'+
+            'dateFormat:"dd-mm-yyyy"\n'+
+            '});\n'+
+        '$("#userdob").datepicker("option","dateFormat", "dd/mm/yy");});\n'+
+        'function validate(){\n'+
+        'var phoneno = /^[1-9]{1}[0-9]{9}$/;'+
+        'var dob = /^(0[1-9]|[12][0-9]|3[01])[\- \/.](?:(0[1-9]|1[012])[\- \/.](19|20)[0-9]{2})$/;\n'+
+        'var error = "";\n'+
+        'if(document.getElementById("userfname").value.trim() == "") error += "Enter First Name\\n";\n'+
+        'if(document.getElementById("userlname").value.trim() == "") error += "Enter Last Name\\n";\n'+
+        'if(document.getElementById("usergender").value == "0") error += "Select Gender\\n";\n'+
+        'if(document.getElementById("useremail").value.trim() == "") error += "Enter Email\\n";\n'+
+        'if(document.getElementById("userphone").value.trim() == "") error += "Enter Phone Number\\n";\n'+
+        'if(!document.getElementById("userphone").value.trim().match(phoneno)) error += "Enter valid Phone Number\\n"\n'+
+        'if(document.getElementById("userdob").value.trim() == "")error += "Enter Date of Birth\\n";\n'+
+        'if(!document.getElementById("userdob").value.trim().match(dob)) error += "Enter valid Date of Birth\\n";\n'+
+        'if(document.getElementById("userterms").checked==false) error += "Please accept Lurningo Terms and Conditions";\n'+
+        'if(error != ""){'+
+        'alert(error);\n'+
+        'return false;\n'+
+        '}\n'+
+        'else\n'+
+        'return true;\n'+
+        '}\n'+
+        '</'+'script>\n'+
+        '</'+'head>\n'+
+        '<form action="<?php echo base_url("Leadapi");?>" method="post" id="campaignform" name="campaignform" onsubmit="return(validate());">\n'+
+        '<input type="hidden" id="campaignid" name="campaignid" value="'+campaignid+'">\n'+
+        '<input type="hidden" id="redirecturl" name="redirecturl" value="'+redirecturl+'">\n'+
+        '<input type="hidden" id="apikey" name="apikey" value="Lurningo_API_KEY" hidden>\n'+
+        'Name:\n'+
+        '<input type="text" placeholder="First name" id="userfname" name="userfname"> <input type = "text" placeholder="Last name" id="userlname" name="userlname">'+
+        '<br /><br />\n'+
+        '<label>Gender</label>'+ 
+        '<select id="usergender" name="usergender">\n'+
+        '<option value="0">Select</option>\n'+
+        '<option value="M">Male</option>\n'+
+        '<option value="F">Female</option>\n'+
+        '<option value="O">Other</option>\n'+
+        '</select>\n'+
+        '<br /><br>\n'+
+        '<label>Date of Birth</label> <input type="text" id="userdob" name="userdob" placeholder="dd-mm-yyyy">\n'+
+        '<br /><br />\n'+
+        '<label>Email</label> <input type="email" placeholder="Enter Email" id="useremail" name="useremail">\n'+
+        '<br /><br />\n'+
+        '<label>Phone</label> <input type="text" placeholder="Enter Phone number" id="userphone" name="userphone">\n'+
+        '<br /><br />\n'+
+        '<input type="checkbox" id="userterms" name="userterms"> I accept Lurningo <a href="https://www.lurningo.com/Account/TermsAndConditions">Terms and Conditions</a>\n'+
+        '<br /><br />\n'+
+        '<input type="submit" id="submitform" name="submitform"  value="Submit"><br>\n'+
+        '</form></html>';
+       document.getElementById('viewsource').value=txtDATA;
+   }
+  }
+}
+</script>
